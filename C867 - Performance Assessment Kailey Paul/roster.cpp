@@ -92,8 +92,8 @@ void Roster::remove(string _studentID)
     }
     if (success)
     {
-        cout << "This student: " << _studentID << " has been removed from the repository." << std:endl;
-        this->printALL();
+        cout << "This student: " << _studentID << " has been removed from the repository." << std::endl;
+        this->printAll();
     }
     else cout << "This student: " << _studentID << " was not found." <<std::endl;
 }
@@ -119,8 +119,11 @@ void Roster::printAverageDaysInCourse(string studentID)
     
     for (int i = 0; i <= Roster::lastIndex; i++)
     {
-        cout << "Student: " << classRosterArray[i]->getID() << endl;
-        cout << "Average number of days in the three courses: " << (classRosterArray[i]->getdaysinCourse[0] + classRosterArray[i]->getdaysinCourse[1] + classRosterArray[i]->getdaysinCourse[2])/3.0 << std::endl;
+        if (classRosterArray[i]->getID() == studentID)
+        {
+            cout << "Student: " << studentID << endl;
+            cout << "Average number of days in the three courses: " << (classRosterArray[i]->getdaysinCourse() + classRosterArray[i]->getdaysinCourse() + classRosterArray[i]->getdaysinCourse()) / 3.0 << std::endl;
+        }
     }
 }
 
@@ -132,7 +135,7 @@ void Roster::printInvalidEmails()
     for (int i = 0; i <= Roster::lastIndex; i++)
     {
         string _Email = (classRosterArray[i]->getEmail());
-        if ((_Email.find(' ') !== string::npos) || (_Email.find('@') == string::npos) || (_Email.find('.') = string::npos))
+        if ((_Email.find(' ') == string::npos) || (_Email.find('@') == string::npos) || (_Email.find('.') == string::npos))
         {
             any = true;
             cout << _Email << ": " << classRosterArray[i]->getEmail() << std::endl;
@@ -143,10 +146,10 @@ void Roster::printInvalidEmails()
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
 {
-    Student::pringHeader();
+    Student::printHeader();
     for (int i = 0; i <= Roster::lastIndex; i++)
     {
-        if (Roster::classRosterArray[i]->getDegreeProgram() == degreeProgram) classRosterArray[i] ->print();
+        if (Roster::classRosterArray[i]->getdegreeProgram() == degreeProgram) classRosterArray[i] ->print();
     }
     cout << std::endl;
 }
@@ -157,7 +160,7 @@ Roster::~Roster()
     for (int i = 0; i < students; i++)
     {
         cout << "Destroying student" << i + 1 << std::endl;
-        delete studentRosterArray[i];
-        studentRosterArray[i] = nullptr;
+        delete classRosterArray[i];
+        classRosterArray[i] = nullptr;
     }
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include "degree.h"
 
 using namespace std;

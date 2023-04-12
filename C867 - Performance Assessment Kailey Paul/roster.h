@@ -16,7 +16,7 @@ class Roster {
 
 
 
-private:
+public:
     int lastIndex = 0;
     const static int students = 5;
     Student* classRosterArray[students];
@@ -45,7 +45,7 @@ public:
     void printInvalidEmails();
 
     void printByDegreeProgram(DegreeProgram degreeProgram);
-    
+
 
     ~Roster();
 
