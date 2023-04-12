@@ -1,5 +1,6 @@
 #include <iostream>
 #include "student.h"
+#include "roster.h"
 #include <string> //For string use in program
 using namespace std;
 
@@ -9,18 +10,38 @@ using namespace std;
 
 int main() {
 
-	cout << "C867 Performance Assesment\n" << "Name: Kailey Paul\n" << "Student ID: 010366202" << endl; //Project Heading, Name, and my student ID number
+    cout << "C867 Scripting and Programming - Applications\n" << "Programming language = C++" << "Name: Kailey Paul\n" << "Student ID: 010366202" << endl; //Class name, programming language, Name, and my student ID number
 
-	const string studentData[] = { 
-		"A1, John, Smith, John1989@gm ail.com, 20, 30, 35, 40, SECURITY",
-		"A2, Suzan, Erickson, Erickson_1990@gmailcom, 19, 50, 30, 40, NETWORK", 
-		"A3, Jack, Napoli, The_lawyer99yahoo.com, 19, 20, 40, 33, SOFTWARE", 
-		"A4, Erin, Black, Erin.black@comcast.net, 22, 50, 58, 40, SECURITY", 
-		"A5, Kailey, Paul, kpaul71@wgu.edu, 19, 36, 15, 15, SOFTWARE" 
-	};
+    
+    const int students = 5;
+    Roster roster;
+    
+    for(int i = 0; i < students; i++) roster.parse(studentData[i]);
+    cout << "StudentData Table: " << std::endl;
+    roster.printAll();
+    cout << std::endl;
+    
+    roster.printAverageDaysInCourse(string studentID);
+    
+    roster.printInvalidEmails();
+    
+    
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Displaying by degree program(software): " << DegreeProgramString[i] << std::endl;
+        roster.printByDegreeProgram(SOFTWARE);
+        cout << std::endl;
+    }
+    
+
+    roster.remove("A3");
+    cout << std::endl;
 
 
-	return 0;
+    roster.remove("A3");
+    cout << std:endl:
+    
+    system("pause");
+    return 0;
 }
-
 
