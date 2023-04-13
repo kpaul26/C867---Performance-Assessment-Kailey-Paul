@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include "roster.h"
 #include "degree.h"
 #include "student.h"

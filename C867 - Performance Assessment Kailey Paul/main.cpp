@@ -1,8 +1,9 @@
 #include <iostream>
+#include <string> //string use
 #include "student.h"
 #include "roster.h"
 #include "degree.h"
-#include <string> //For string use in program
+ //For string use in program
 using namespace std;
 
 /* Main function for creating ....
